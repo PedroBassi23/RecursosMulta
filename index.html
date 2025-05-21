@@ -211,21 +211,118 @@
         font-size: 2rem;
       }
 
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-      }
+     /* Estrutura geral */
+header {
+  background-color: #1e1e1e;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
 
-      header nav {
-        margin-top: 10px;
-      }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-      header nav a {
-        margin: 10px 0;
-        display: block;
-      }
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
 
+/* Menu desktop */
+.menu {
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #25D366;
+}
+
+/* Hamburguer escondido por padrão */
+.menu-icon,
+#menu-toggle {
+  display: none;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    background-color: #1e1e1e;
+  }
+
+  .menu a {
+    padding: 15px 0;
+    width: 100%;
+    border-top: 1px solid #333;
+  }
+
+  /* Exibir botão */
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-icon span {
+    height: 3px;
+    width: 28px;
+    background-color: white;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Checkbox visível só para JS/CSS */
+  #menu-toggle {
+    display: none;
+  }
+
+  /* Animação para ícone X */
+  #menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  #menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* MOSTRA O MENU QUANDO CHECKED */
+  #menu-toggle:checked ~ .menu {
+    max-height: 500px;
+  }
+}
 
     }
   </style>
@@ -236,8 +333,18 @@
     <div class="logo-container">
       <img src="./Logo_principal.png" alt="Logo Defesa de Multas" style="height: 40px;" />
       <strong>Defesa de Multas</strong>
+  
+      <!-- Botão hamburguer -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
     </div>
-    <nav>
+  
+    <!-- Este nav agora está no lugar correto -->
+    <nav class="menu" id="menu">
       <a href="#inicio">Início</a>
       <a href="#sobre">Sobre</a>
       <a href="#beneficios">Benefícios</a>
@@ -245,6 +352,7 @@
       <a href="#contato">Contato</a>
     </nav>
   </header>
+  
 
   <div class="hero" id="inicio">
     <h1>Foi multado e corre risco de suspensão da CNH?</h1>
@@ -298,7 +406,7 @@
         </div>
         <div class="benefit">
           <i class="fas fa-clock"></i>
-          <h4>Não apresentar defesa pode complicar sua habilitação</h4>
+          <h4>Não apresentar defesa pode complicar sua carta</h4>
           <p>Analisamos seu caso gratuitamente, e orientamos como proceder</p>
         </div>
         <div class="benefit">
@@ -377,5 +485,19 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("menu-toggle");
+      const menuLinks = document.querySelectorAll(".menu a");
+  
+      menuLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          // Fecha o menu desmarcando o checkbox
+          toggle.checked = false;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
