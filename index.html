@@ -197,12 +197,12 @@
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
-      left: 20px;
+      right: 20px;
       background-color: #25D366;
       color: #fff;
-      padding: 15px;
+      padding: 12px;
       border-radius: 50%;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       z-index: 20;
     }
 
@@ -212,83 +212,75 @@
       }
 
      /* Estrutura geral */
+
+/* Estilos base */
 header {
   background-color: #1e1e1e;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px 20px;
 }
 
 .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 20px 60px;
+  align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
+  flex-wrap: wrap;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
 }
 
 /* Menu desktop */
 .menu {
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
 
 .menu a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
+  font-weight: 500;
 }
 
-.menu a:hover {
-  color: #25D366;
+/* Esconde o checkbox */
+.menu-toggle {
+  display: none !important;;
 }
 
 /* Hamburguer escondido por padrão */
-.menu-icon,
-#menu-toggle {
+.menu-icon {
   display: none;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-  }
-
   .menu {
     flex-direction: column;
     width: 100%;
-    overflow: hidden;
     max-height: 0;
+    overflow: hidden;
     transition: max-height 0.3s ease;
     background-color: #1e1e1e;
+    margin-top: 10px;
   }
 
   .menu a {
-    padding: 15px 0;
-    width: 100%;
+    padding: 15px 20px;
     border-top: 1px solid #333;
+    width: 100%;
   }
 
-  /* Exibir botão */
   .menu-icon {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     cursor: pointer;
-    z-index: 1001;
+    margin-left: auto;
   }
 
   .menu-icon span {
@@ -300,12 +292,7 @@ header {
     transition: all 0.3s ease;
   }
 
-  /* Checkbox visível só para JS/CSS */
-  #menu-toggle {
-    display: none;
-  }
-
-  /* Animação para ícone X */
+  /* Animação ícone para X */
   #menu-toggle:checked + .menu-icon span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -318,7 +305,7 @@ header {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
-  /* MOSTRA O MENU QUANDO CHECKED */
+  /* Mostrar menu ao clicar */
   #menu-toggle:checked ~ .menu {
     max-height: 500px;
   }
@@ -330,28 +317,30 @@ header {
 <body>
 
   <header>
-    <div class="logo-container">
-      <img src="./Logo_principal.png" alt="Logo Defesa de Multas" style="height: 40px;" />
-      <strong>Defesa de Multas</strong>
-  
+    <div class="header-inner">
+      <div class="logo-container">
+        <img src="./Logo_principal.png" alt="Logo Defesa de Multas" style="height: 40px;" />
+        <strong>Defesa de Multas</strong>
+      </div>
       <!-- Botão hamburguer -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden/>
       <label for="menu-toggle" class="menu-icon">
         <span></span>
         <span></span>
         <span></span>
       </label>
+      <div><p></p></div>
+      <!-- Menu de navegação -->
+      <nav class="menu" id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
     </div>
-  
-    <!-- Este nav agora está no lugar correto -->
-    <nav class="menu" id="menu">
-      <a href="#inicio">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#beneficios">Benefícios</a>
-      <a href="#depoimentos">Depoimentos</a>
-      <a href="#contato">Contato</a>
-    </nav>
   </header>
+  
   
 
   <div class="hero" id="inicio">
@@ -465,11 +454,11 @@ header {
 
   <section id="contato" class="form-section">
     <h2>Entre em contato</h2>
-    <form>
-      <input type="text" placeholder="Nome completo" required />
-      <input type="email" placeholder="E-mail" required />
-      <input type="tel" placeholder="Telefone" required />
-      <textarea rows="4" placeholder="Nos diga sua situação..."></textarea>
+    <form action="https://formsubmit.co/pedrobassi58@gmail.com" method="POST">
+      <input type="text" name="nome" placeholder="Nome completo" required />
+      <input type="email" name="email" placeholder="E-mail" required />
+      <input type="tel" name="telefone" placeholder="Telefone" required />
+      <textarea name="mensagem" rows="4" placeholder="Nos diga sua situação..."></textarea>
       <button type="submit">Solicitar análise gratuita</button>
     </form>
   </section>
@@ -478,6 +467,9 @@ header {
     <img src="./Logo_principal.png" alt="Logo_principal" height="100px">
     <p>© 2025 – Todos os direitos reservados.</p>
     <p>Franca-SP</p>
+    <p>Telefone: (16) 99225-7956</p>
+    <p>WhatsApp: (16) 99225-7956</p>
+    <p>Instagram: @Direitos_no_transito</p>
     
   </footer>
 
