@@ -196,15 +196,24 @@
 
     .whatsapp-float {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 30px;
+      right: 30px;
+      width: auto;
+      height: auto;
       background-color: #25D366;
       color: #fff;
-      padding: 12px;
+      padding: 25px;
       border-radius: 50%;
-      font-size: 1.7rem;
-      z-index: 20;
+      transition: transform 0.3s ease;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      text-decoration: none;
+      font-size: 2rem;
     }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
 
     @media (max-width: 600px) {
       .hero h1 {
@@ -266,7 +275,7 @@ header {
     overflow: hidden;
     transition: max-height 0.3s ease;
     background-color: #1e1e1e;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   .menu a {
@@ -476,7 +485,6 @@ header {
   <a href="https://wa.me/5516992257956?text=Ol%C3%A1%20Gustavo%2C%20estou%20precisando%20de%20ajuda%20com%20a%20minha%20CNH." class="whatsapp-float" target="_blank" title="Fale pelo WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
-
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
