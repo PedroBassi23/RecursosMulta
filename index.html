@@ -194,6 +194,16 @@
       color: #ccc;
     }
 
+    footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #cccccc; /* Tom mais claro ao passar o mouse */
+    }
+
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
@@ -220,107 +230,105 @@
         font-size: 2rem;
       }
 
-     /* Estrutura geral */
-
-/* Estilos base */
-header {
-  background-color: #1e1e1e;
-  color: white;
-  padding: 15px 20px;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: auto;
-  flex-wrap: wrap;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Menu desktop */
-.menu {
-  display: flex;
-  gap: 20px;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* Esconde o checkbox */
-.menu-toggle {
-  display: none !important;;
-}
-
-/* Hamburguer escondido por padrão */
-.menu-icon {
-  display: none;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background-color: #1e1e1e;
-    margin-top: 5px;
-  }
-
-  .menu a {
-    padding: 15px 20px;
-    border-top: 1px solid #333;
-    width: 100%;
-  }
-
-  .menu-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    margin-left: auto;
-  }
-
-  .menu-icon span {
-    height: 3px;
-    width: 28px;
-    background-color: white;
-    margin: 4px 0;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  /* Animação ícone para X */
-  #menu-toggle:checked + .menu-icon span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  #menu-toggle:checked + .menu-icon span:nth-child(2) {
-    opacity: 0;
-  }
-
-  #menu-toggle:checked + .menu-icon span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-
-  /* Mostrar menu ao clicar */
-  #menu-toggle:checked ~ .menu {
-    max-height: 500px;
-  }
-}
-
+    /* Estilos base */
+    header {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 15px 20px;
     }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Menu desktop */
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Esconde o checkbox */
+    .menu-toggle {
+      display: none !important;;
+    }
+
+    /* Hamburguer escondido por padrão */
+    .menu-icon {
+      display: none;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background-color: #1e1e1e;
+        margin-top: 5px;
+      }
+
+      .menu a {
+        padding: 15px 20px;
+        border-top: 1px solid #333;
+        width: 100%;
+      }
+
+      .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        margin-left: auto;
+      }
+
+      .menu-icon span {
+        height: 3px;
+        width: 28px;
+        background-color: white;
+        margin: 4px 0;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      /* Animação ícone para X */
+      #menu-toggle:checked + .menu-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      #menu-toggle:checked + .menu-icon span:nth-child(2) {
+        opacity: 0;
+      }
+
+      #menu-toggle:checked + .menu-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mostrar menu ao clicar */
+      #menu-toggle:checked ~ .menu {
+        max-height: 500px;
+      }
+      }
+
+        }
   </style>
 </head>
 <body>
@@ -474,8 +482,8 @@ header {
 
   <footer>
     <img src="./Logo_principal.png" alt="Logo_principal" height="100px">
-    <p>© 2025 – Todos os direitos reservados.</p>
-    <p>Franca-SP</p>
+    <p><strong>© 2025</strong> – Todos os direitos reservados.</p>
+    <p><strong>Franca-SP</strong></p>
     <p><strong>Telefone:</strong> (16) 99225-7956</p>
     <p><strong>WhatsApp:</strong> (16) 99225-7956</p>
     <p><strong>Instagram:</strong> <a href="https://instagram.com/direitos_no_transito" target="_blank">@direitos_no_transito</a></p>
